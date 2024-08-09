@@ -1,16 +1,17 @@
 #Mandatory: List of processes
 processList = {
-    'p8_ee_ZZ_ecm240':{'fraction':1,'chunks':20},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_ZZ_ecm240/chunk<N>.root
-    'p8_ee_WW_ecm240':{'fraction':1,'chunks':50},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_WW_ecm240/chunk<N>.root
-    'wzp6_ee_eeH_ecm240':{'fraction':1,'chunks':2},
-    'wzp6_ee_mumuH_ecm240':{'fraction':1,'chunks':2},
-    'wzp6_ee_nunuH_ecm240':{'fraction':1,'chunks':2},
-    'wzp6_ee_tautauH_ecm240':{'fraction':1,'chunks':2},
-    'wzp6_ee_qqH_ecm240':{'fraction':1,'chunks':10},
-    'wzp6_ee_ee_Mee_30_150_ecm240':{'fraction':1,'chunks':20},
-    'wzp6_ee_mumu_ecm240':{'fraction':1,'chunks':20},
-    'wzp6_ee_tautau_ecm240':{'fraction':1,'chunks':20},
-#    'p8_ee_tt_ecm365':{'chunks':20},
+    'p8_ee_ZZ_ecm365':{'fraction':1,'chunks':20},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_ZZ_ecm240/chunk<N>.root
+    'p8_ee_WW_ecm365':{'fraction':1,'chunks':50},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_WW_ecm240/chunk<N>.root
+    'wzp6_ee_eeH_ecm365':{'fraction':1,'chunks':2},
+    'wzp6_ee_mumuH_ecm365':{'fraction':1,'chunks':2},
+    'wzp6_ee_nunuH_ecm365':{'fraction':1,'chunks':2},
+    'wzp6_ee_tautauH_ecm365':{'fraction':1,'chunks':2},
+    'wzp6_ee_qqH_ecm365':{'fraction':1,'chunks':10},
+    'wzp6_ee_ee_Mee_30_150_ecm365':{'fraction':1,'chunks':20},
+    'wzp6_ee_mumu_ecm365':{'fraction':1,'chunks':20},
+    'wzp6_ee_tautau_ecm365':{'fraction':1,'chunks':20},
+    'p8_ee_tt_ecm365':{'fraction':1,'chunks':20},
+    'wzp6_ee_qq_ecm365':{'fraction':1,'chunks':10},
 }
 
 #Mandatory: Production tag when running over EDM4Hep centrally produced events, this points to the yaml files for getting sample statistics
@@ -20,13 +21,13 @@ processList = {
 inputDir    = "/eos/experiment/fcc/ee/generation/DelphesEvents/winter2023/IDEA"
 
 #Optional: output directory, default is local dir
-outputDir   = "root://eosuser.cern.ch//eos/user/a/amagnan/FCC/iDMprod/Analysis/stage1"
+#outputDir   = "root://eosuser.cern.ch//eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1"
 
 #Optional: ncpus, default is 4
 nCPUS       = 4
 
 #Optional running on HTCondor, default is False
-runBatch    = False
+runBatch    = True
 
 #Optional batch queue name when running on HTCondor, default is workday
 batchQueue = "workday"
@@ -36,6 +37,7 @@ batchQueue = "workday"
 
 #Optional output directory on eos, if specified files will be copied there once the batch job is done, default is empty
 #outputDirEos = "/eos/user/a/amagnan/FCC/iDMprod/Analysis/Bkg"
+outputDirEos   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1"
 
 #Optional type for eos, needed when <outputDirEos> is specified. The default is FCC eos which is eospublic
 eosType = "eosuser"
@@ -139,8 +141,8 @@ class RDFanalysis():
             .Define("zed_mumu_pt",      "ReconstructedParticle::get_pt(zed_mumu)")
             .Define("zed_ee_pt",      "ReconstructedParticle::get_pt(zed_ee)")
             # calculate recoil of zed_leptonic
-            .Define("zed_mumu_recoil",  "ReconstructedParticle::recoilBuilder(240)(zed_mumu)")
-            .Define("zed_ee_recoil",  "ReconstructedParticle::recoilBuilder(240)(zed_ee)")
+            .Define("zed_mumu_recoil",  "ReconstructedParticle::recoilBuilder(365)(zed_mumu)")
+            .Define("zed_ee_recoil",  "ReconstructedParticle::recoilBuilder(365)(zed_ee)")
             # create branch with recoil mass
             .Define("zed_mumu_recoil_m","ReconstructedParticle::get_mass(zed_mumu_recoil)")
             .Define("zed_ee_recoil_m","ReconstructedParticle::get_mass(zed_ee_recoil)")
