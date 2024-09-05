@@ -29,10 +29,10 @@ processList = {
 
 #Mandatory: input directory when not running over centrally produced edm4hep events. 
 #It can still be edm4hep files produced standalone or files from a first analysis step (this is the case in this example it runs over the files produced from analysis.py)
-inputDir  = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
+inputDir  = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1_newFltr"
 
 #Optional: output directory, default is local dir
-outputDir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2NoCut"
+outputDir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2_cut"
 
 #Optional: ncpus, default is 4
 nCPUS     = 4

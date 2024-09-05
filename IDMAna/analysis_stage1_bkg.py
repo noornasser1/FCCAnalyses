@@ -23,13 +23,13 @@ processList = {
 inputDir    = "/eos/experiment/fcc/ee/generation/DelphesEvents/winter2023/IDEA"
 
 #Optional: output directory, default is local dir
-outputDir   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
+outputDir   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1_newFltr"
 
 #Optional: ncpus, default is 4
 nCPUS       = 4
 
 #Optional running on HTCondor, default is False
-runBatch    = False
+runBatch    = True
 
 #Optional batch queue name when running on HTCondor, default is workday
 batchQueue = "workday"
@@ -38,7 +38,7 @@ batchQueue = "workday"
 #compGroup = "group_u_FCC.local_gen"
 
 #Optional output directory on eos, if specified files will be copied there once the batch job is done, default is empty
-#outputDirEos   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
+outputDirEos   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1_newFltr"
 
 #Optional type for eos, needed when <outputDirEos> is specified. The default is FCC eos which is eospublic
 eosType = "eosuser"
@@ -150,7 +150,10 @@ class RDFanalysis():
             # create branch with leptonic charge
             .Define("zed_mumu_charge","ReconstructedParticle::get_charge(zed_mumu)")
             .Define("zed_ee_charge","ReconstructedParticle::get_charge(zed_ee)")
+
             # Filter at least one candidate
+            .Filter("(zed_mumu_pz.size()>0 && abs(zed_mumu_pz[0])<140) || (zed_ee_pz.size()>0 && abs(zed_ee_pz[0])<140)")
+            .Filter("(zed_mumu_m.size()>0 && zed_mumu_m[0]<(-9.0/14.0 * abs(zed_mumu_pz[0]) + 200)) || (zed_ee_m.size()>0 && zed_ee_m[0]<(-9.0/14.0 * abs(zed_ee_pz[0]) + 200))")
 
             #.Filter("(zed_mumu_pz.size()>0 && abs(zed_mumu_pz[0])<70) || (zed_ee_pz.size()>0 && abs(zed_ee_pz[0])<70)")
             #.Filter("(zed_mumu_m.size()>0 && zed_mumu_m[0]<120) || (zed_ee_m.size()>0 && zed_ee_m[0]<120)")
