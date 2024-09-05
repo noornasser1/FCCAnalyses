@@ -2,17 +2,14 @@ import ROOT
 
 # global parameters
 intLumi        = 5.0e+06 #in pb-1
-#intLumi        = 1e6
 ana_tex        = 'e^{+}e^{-} #rightarrow l^{+}l^{-} + H + H'
 delphesVersion = '3.4.2'
 energy         = 365.0
 collider       = 'FCC-ee'
-inputDir       = 'iDM/finalNoCut/'
-#inputDir       = '/eos/user/n/nnasser/FCC/iDMprod/Analysis/final_365/'
+inputDir       = 'iDM/finalNoCut/' #'/eos/user/n/nnasser/FCC/iDMprod/Analysis/final_365/'
 formats        = ['png','pdf']
 yaxis          = ['lin','log']
 stacksig       = ['nostack']
-#outdir         = 'iDM/plotsNoCut/'
 outdir         = '/eos/user/n/nnasser/FCC/iDMprod/Analysis/plotsNoCut/'
 plotStatUnc    = True
 
@@ -54,9 +51,9 @@ selections = {}
 #selections['Zee']   = ["TwoEle","TwoEleVetoObj","TwoEleLepCuts", "TwoElePoverE"]
 #selections['Zmumu']   = ["TwoMu","TwoMuVetoObj","TwoMuLepCuts", "TwoMuPoverE"]
 selections['iDM_BP1'] = ["TwoMu"]
-#selections['iDM_BP2'] = ["TwoMu"]
-#selections['iDM_BP7'] = ["TwoMu"]
-#selections['iDM_BP10'] = ["TwoMu"]
+selections['iDM_BP2'] = ["TwoMu"]
+selections['iDM_BP7'] = ["TwoMu"]
+selections['iDM_BP10'] = ["TwoMu"]
 
 extralabel = {}
 extralabel['TwoEle'] = "Selection: N_{e} = 2, |p_{z}^{ee}|<70 GeV, M_{ee}<120 GeV, MET p_{T}>5 GeV"
@@ -92,9 +89,9 @@ plots = {}
 plots['iDM_BP1'] = {
     'signal':{
         'iDM1':['e365_bp1_h2h2ll','e365_bp1_h2h2llvv'],
-        #'iDM2':['e365_bp2_h2h2ll','e365_bp2_h2h2llvv'],
-        #'iDM6':['e365_bp6_h2h2ll','e365_bp6_h2h2llvv'],
-        #'iDM8':['e365_bp8_h2h2ll','e365_bp8_h2h2llvv'],
+        'iDM2':['e365_bp2_h2h2ll','e365_bp2_h2h2llvv'],
+        'iDM6':['e365_bp6_h2h2ll','e365_bp6_h2h2llvv'],
+        'iDM8':['e365_bp8_h2h2ll','e365_bp8_h2h2llvv'],
     },
     'backgrounds':{
         #'eem30':['wzp6_ee_ee_Mee_30_150_ecm365'],
@@ -112,32 +109,9 @@ plots['iDM_BP1'] = {
         #'nunuH':['wzp6_ee_nunuH_ecm240'],
     }
 }
-'''
-plots['Zmumu'] = {
-    'signal':{
-        'iDM1':['e365_bp1_h2h2ll','e365_bp1_h2h2llvv'],
-        'iDM2':['e365_bp2_h2h2ll','e365_bp2_h2h2llvv'],
-        #'iDM3':['e365_bp3_h2h2ll','e365_bp3_h2h2llvv'],
-        #'iDM4':['e365_bp4_h2h2ll','e365_bp4_h2h2llvv'],
-        #'iDM5':['e365_bp5_h2h2ll','e365_bp5_h2h2llvv'],
-        'iDM7':['e365_bp7_h2h2ll','e365_bp7_h2h2llvv'],
-        #'iDM7':['e365_bp7_h2h2ll','e365_bp7_h2h2llvv'],
-        'iDM10':['e365_bp10_h2h2ll','e365_bp10_h2h2llvv'], 
-    },
-    'backgrounds':{
-        'mumu':['wzp6_ee_mumu_ecm365'],
-        'tautau':['wzp6_ee_tautau_ecm365'],
-        'WW':['p8_ee_WW_ecm365'],
-        'ZZ':['p8_ee_ZZ_ecm365'],
-        #'All Bkg': ['p8_ee_ZZ_ecm365', 'p8_ee_WW_ecm365', 'wzp6_ee_mumu_ecm365', 'wzp6_ee_tautau_ecm365'],
-       
-    }
-}
-'''
 
 #plots['Zee']= plots['Zmumu']
 
-#plots['Zmumu'] = plots['Zee']
 
 legend = {}
 legend['All Bkg'] = 'All Backgrounds'

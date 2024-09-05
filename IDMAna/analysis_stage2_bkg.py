@@ -24,7 +24,6 @@ processList = {
 inputDir  = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
 
 #Optional: output directory, default is local dir
-#outputDir   = "iDM/stage2/"
 outputDir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2NoCut"
 
 #Optional: ncpus, default is 4
@@ -40,7 +39,6 @@ batchQueue = "workday"
 #compGroup = "group_u_FCC.local_gen"
 
 #Optional output directory on eos, if specified files will be copied there once the batch job is done, default is empty
-#outputDirEos = "/eos/user/a/amagnan/FCC/iDMprod/Analysis/Bkg"
 #outputDirEos   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2"
 
 #Optional type for eos, needed when <outputDirEos> is specified. The default is FCC eos which is eospublic
