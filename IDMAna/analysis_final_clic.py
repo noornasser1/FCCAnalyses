@@ -1,8 +1,8 @@
 #Input directory where the files produced at the pre-selection level are
-inputDir  = "iDM/stage2/"
+#inputDir  = "iDM/stage2/"
+inputDir   = "/eos/user/a/amagnan/FCC/iDMprod/winter2023/stage3/"
 
-
-outputDir  = "iDM/final/Clic/"
+outputDir  = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/final_Clic/"
 
 #Integrated luminosity for scaling number of events (required only if setting doScale to true)
 intLumi = 1e6 #pb^-1

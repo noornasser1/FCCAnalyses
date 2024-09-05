@@ -1,40 +1,43 @@
+ecmVar = 365
+
 processList = {
-    'p8_ee_ZZ_ecm240':{},
-    'p8_ee_WW_ecm240':{},
-    'wzp6_ee_eeH_ecm240':{},
-    'wzp6_ee_mumuH_ecm240':{},
-    'wzp6_ee_nunuH_ecm240':{},
-    'wzp6_ee_tautauH_ecm240':{},
-    'wzp6_ee_qqH_ecm240':{},
-    'wzp6_ee_ee_Mee_30_150_ecm240':{},
-    'wzp6_ee_mumu_ecm240':{},
-    'wzp6_ee_tautau_ecm240':{},
-    'e240_bp1_h2h2ll':{},'e240_bp1_h2h2llvv':{},
-    'e240_bp2_h2h2ll':{},'e240_bp2_h2h2llvv':{},
-    'e240_bp3_h2h2ll':{},'e240_bp3_h2h2llvv':{},
-    'e240_bp4_h2h2ll':{},'e240_bp4_h2h2llvv':{},
-    'e240_bp5_h2h2ll':{},'e240_bp5_h2h2llvv':{},
-    'e240_bp6_h2h2ll':{},'e240_bp6_h2h2llvv':{},
-    'e240_bp7_h2h2ll':{},'e240_bp7_h2h2llvv':{},
-    'e240_bp8_h2h2ll':{},'e240_bp8_h2h2llvv':{},
-    'e240_bp9_h2h2ll':{},'e240_bp9_h2h2llvv':{},
-    'e240_bp10_h2h2ll':{},'e240_bp10_h2h2llvv':{},
-    'e240_bp11_h2h2ll':{},'e240_bp11_h2h2llvv':{},
-    'e240_bp12_h2h2ll':{},'e240_bp12_h2h2llvv':{},
-    'e240_bp13_h2h2ll':{},'e240_bp13_h2h2llvv':{},
-    'e240_bp14_h2h2ll':{},'e240_bp14_h2h2llvv':{},
-    'e240_bp18_h2h2ll':{},'e240_bp18_h2h2llvv':{},
-    'e240_bp19_h2h2ll':{},'e240_bp19_h2h2llvv':{},
-    'e240_bp20_h2h2ll':{},'e240_bp20_h2h2llvv':{},
+    f'p8_ee_ZZ_ecm{int(ecmVar)}':{},
+    f'p8_ee_WW_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_eeH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_mumuH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_nunuH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_tautauH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_qqH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_ee_Mee_30_150_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_mumu_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_tautau_ecm{int(ecmVar)}':{},
+    f'e{int(ecmVar)}_bp1_h2h2ll':{},f'e{int(ecmVar)}_bp1_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp2_h2h2ll':{},f'e{int(ecmVar)}_bp2_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp3_h2h2ll':{},f'e{int(ecmVar)}_bp3_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp4_h2h2ll':{},f'e{int(ecmVar)}_bp4_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp5_h2h2ll':{},f'e{int(ecmVar)}_bp5_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp6_h2h2ll':{},f'e{int(ecmVar)}_bp6_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp7_h2h2ll':{},f'e{int(ecmVar)}_bp7_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp8_h2h2ll':{},f'e{int(ecmVar)}_bp8_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp9_h2h2ll':{},f'e{int(ecmVar)}_bp9_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp10_h2h2ll':{},f'e{int(ecmVar)}_bp10_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp11_h2h2ll':{},f'e{int(ecmVar)}_bp11_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp12_h2h2ll':{},f'e{int(ecmVar)}_bp12_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp13_h2h2ll':{},f'e{int(ecmVar)}_bp13_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp14_h2h2ll':{},f'e{int(ecmVar)}_bp14_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp18_h2h2ll':{},f'e{int(ecmVar)}_bp18_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp19_h2h2ll':{},f'e{int(ecmVar)}_bp19_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp20_h2h2ll':{},f'e{int(ecmVar)}_bp20_h2h2llvv':{},
     #'p8_ee_ZH_ecm240_out':{'output':'MySample_p8_ee_ZH_ecm240'} #Run over the full statistics from stage1 input file <inputDir>/p8_ee_ZH_ecm240_out.root. Change the output name to MySample_p8_ee_ZH_ecm240
 }
 
 #Mandatory: input directory when not running over centrally produced edm4hep events. 
 #It can still be edm4hep files produced standalone or files from a first analysis step (this is the case in this example it runs over the files produced from analysis.py)
-inputDir  = "iDM/stage2"
+#inputDir  = "iDM/stage2"
+inputDir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2/"
 
 #Optional: output directory, default is local dir
-outputDir   = "iDM/stage3/"
+outputDir= "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage3/"
 
 #Optional: ncpus, default is 4
 nCPUS       = 4
@@ -62,7 +65,6 @@ runBatch    = False
 import ROOT
 import os
 def add_bdt(df):#, xmlpath, bpnum):
-    
     vec_varn = []
 
     for bpnum in range(1,21):
@@ -84,18 +86,19 @@ def add_bdt(df):#, xmlpath, bpnum):
 
         #print("VarNames = ", l_expr)
         
-        l_varn = ROOT.std.vector['std::string']()
+        #l_varn = ROOT.std.vector['std::string']()
+        l_varn = []
         for i_expr, expr in enumerate(l_expr):
             varname = 'v_{}_{}'.format(i_expr,bpnum)
             #print(varname)
-            l_varn.push_back(varname)
-            
+            #l_varn.push_back(varname)
+            l_varn.append(varname)
             #if (bpnum==1):
             df=df.Define(varname, '(float)({})'.format(expr) )
             #else:
             #    df=df.Redefine(varname, '(float)({})'.format(expr) )
         vec_varn.append(l_varn)
-
+       
     df2 = (df
            .Define("bdt_output_bp1", ROOT.computeModel1, vec_varn[0])
            .Define("bdt_output_bp2", ROOT.computeModel2, vec_varn[1])
@@ -116,12 +119,11 @@ def add_bdt(df):#, xmlpath, bpnum):
            .Define("bdt_output_bp20", ROOT.computeModel20, vec_varn[16])
 
            )
-
+    
     return df2
 
 #Mandatory: RDFanalysis class where the use defines the operations on the TTree
 class RDFanalysis():
-
 
     #__________________________________________________________
     #Mandatory: analysers funtion to define the analysers to process, please make sure you return the last dataframe, in this example it is df2
@@ -162,8 +164,9 @@ class RDFanalysis():
             "bdt_output_bp4","bdt_output_bp5","bdt_output_bp6",
             "bdt_output_bp7","bdt_output_bp8","bdt_output_bp9",
             "bdt_output_bp10","bdt_output_bp11","bdt_output_bp12",
-            "bdt_output_bp13","bdt_output_bp14","bdt_output_bp18",
-            "bdt_output_bp19","bdt_output_bp20"
+            "bdt_output_bp13","bdt_output_bp14",
+           # "bdt_output_bp18",
+           # "bdt_output_bp19","bdt_output_bp20"
         ]
         return branchList
 

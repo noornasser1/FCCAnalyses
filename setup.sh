@@ -3,8 +3,10 @@ if [ "${0}" != "${BASH_SOURCE}" ]; then
   export LOCAL_DIR=$(cd $(dirname "${BASH_SOURCE}") && pwd)
 
   echo "----> Info: Setting up Key4hep stack..."
+  source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2024-03-10
   # Sourcing of the stack
-  if [ -n "${KEY4HEP_STACK}" ]; then
+ '''
+ if [ -n "${KEY4HEP_STACK}" ]; then
     echo "----> Info: Key4hep stack already set up. Skipping..."
   elif [ -f "${LOCAL_DIR}/.fccana/stackpin" ]; then
     STACK_PATH=$(<${LOCAL_DIR}/.fccana/stackpin)
@@ -14,7 +16,8 @@ if [ "${0}" != "${BASH_SOURCE}" ]; then
   else
     source /cvmfs/sw.hsf.org/key4hep/setup.sh
   fi
-
+'''
+ 
   if [ -z "${KEY4HEP_STACK}" ]; then
     echo "----> Error: Key4hep stack not setup correctly! Aborting..."
     return 1

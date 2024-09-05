@@ -1,40 +1,44 @@
+ecmVar = 365
+
 processList = {
     #'p8_ee_ZZ_ecm240':{},
     #'p8_ee_WW_ecm240':{},
     #'p8_ee_ZH_ecm240':{},
-'e240_bp1_h2h2ll':{},'e240_bp1_h2h2llvv':{},
-'e240_bp2_h2h2ll':{},'e240_bp2_h2h2llvv':{},
-'e240_bp3_h2h2ll':{},'e240_bp3_h2h2llvv':{},
-'e240_bp4_h2h2ll':{},'e240_bp4_h2h2llvv':{},
-'e240_bp5_h2h2ll':{},'e240_bp5_h2h2llvv':{},
-'e240_bp6_h2h2ll':{},'e240_bp6_h2h2llvv':{},
-'e240_bp7_h2h2ll':{},'e240_bp7_h2h2llvv':{},
-'e240_bp8_h2h2ll':{},'e240_bp8_h2h2llvv':{},
-'e240_bp9_h2h2ll':{},'e240_bp9_h2h2llvv':{},
-'e240_bp10_h2h2ll':{},'e240_bp10_h2h2llvv':{},
-'e240_bp11_h2h2ll':{},'e240_bp11_h2h2llvv':{},
-'e240_bp12_h2h2ll':{},'e240_bp12_h2h2llvv':{},
-'e240_bp13_h2h2ll':{},'e240_bp13_h2h2llvv':{},
-'e240_bp14_h2h2ll':{},'e240_bp14_h2h2llvv':{},
-'e240_bp18_h2h2ll':{},'e240_bp18_h2h2llvv':{},
-'e240_bp19_h2h2ll':{},'e240_bp19_h2h2llvv':{},
-'e240_bp20_h2h2ll':{},'e240_bp20_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp1_h2h2ll':{},f'e{int(ecmVar)}_bp1_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp2_h2h2ll':{},f'e{int(ecmVar)}_bp2_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp3_h2h2ll':{},f'e{int(ecmVar)}_bp3_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp4_h2h2ll':{},f'e{int(ecmVar)}_bp4_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp5_h2h2ll':{},f'e{int(ecmVar)}_bp5_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp6_h2h2ll':{},f'e{int(ecmVar)}_bp6_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp7_h2h2ll':{},f'e{int(ecmVar)}_bp7_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp8_h2h2ll':{},f'e{int(ecmVar)}_bp8_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp9_h2h2ll':{},f'e{int(ecmVar)}_bp9_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp10_h2h2ll':{},f'e{int(ecmVar)}_bp10_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp11_h2h2ll':{},f'e{int(ecmVar)}_bp11_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp12_h2h2ll':{},f'e{int(ecmVar)}_bp12_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp13_h2h2ll':{},f'e{int(ecmVar)}_bp13_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp14_h2h2ll':{},f'e{int(ecmVar)}_bp14_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp15_h2h2ll':{},f'e{int(ecmVar)}_bp15_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp16_h2h2ll':{},f'e{int(ecmVar)}_bp16_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp18_h2h2ll':{},f'e{int(ecmVar)}_bp18_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp19_h2h2ll':{},f'e{int(ecmVar)}_bp19_h2h2llvv':{},
+    f'e{int(ecmVar)}_bp20_h2h2ll':{},f'e{int(ecmVar)}_bp20_h2h2llvv':{},
     #'p8_ee_ZH_ecm240_out':{'output':'MySample_p8_ee_ZH_ecm240'} #Run over the full statistics from stage1 input file <inputDir>/p8_ee_ZH_ecm240_out.root. Change the output name to MySample_p8_ee_ZH_ecm240
 }
 ##for bp in `seq 1 20`; do echo "'e240_bp${bp}_h2h2ll':{},'e240_bp${bp}_h2h2llvv':{},"; done
 
 #Mandatory: input directory when not running over centrally produced edm4hep events. 
 #It can still be edm4hep files produced standalone or files from a first analysis step (this is the case in this example it runs over the files produced from analysis.py)
-inputDir  = "/eos/user/a/amagnan/FCC/iDMprod/Analysis/stage1"
+inputDir  = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
 
 #Optional: output directory, default is local dir
-outputDir   = "iDM/stage2/"
+outputDir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2NoCut"
 
 #Optional: ncpus, default is 4
-nCPUS       = 4
+nCPUS     = 4
 
 #Optional running on HTCondor, default is False
-runBatch    = False
+runBatch  = False
 
 ##USER DEFINED CODE
 #import ROOT

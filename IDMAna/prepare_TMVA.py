@@ -4,30 +4,33 @@ import ROOT as rt
 #cvs = rt.TCanvas()
 #cvs.SetCanvasSize(800,600)
 
-input_dir = "/eos/user/a/amagnan/FCC/iDMprod/Analysis/stage2/"
+ecmVar = 365
+
+input_dir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2/"
+
 # Update the filenames with the new directory
-fnameB = input_dir + "p8_ee_WW_ecm240.root"
+fnameB = input_dir + f"p8_ee_WW_ecm{int(ecmVar)}.root"
 fB = rt.TFile.Open(fnameB)
 fB.ls()
 treeB = fB.events
 
-fnameB2 = input_dir + "p8_ee_ZZ_ecm240.root"
+fnameB2 = input_dir + f"p8_ee_ZZ_ecm{int(ecmVar)}.root"
 fB2 = rt.TFile.Open(fnameB2)
 treeB2 = fB2.events
 
-fnameB3 = input_dir + "wzp6_ee_ee_Mee_30_150_ecm240.root"
+fnameB3 = input_dir + f"wzp6_ee_ee_Mee_30_150_ecm{int(ecmVar)}.root"
 fB3 = rt.TFile.Open(fnameB3)
 treeB3 = fB3.events
 
-fnameB4 = input_dir + "wzp6_ee_mumu_ecm240.root"
+fnameB4 = input_dir + f"wzp6_ee_mumu_ecm{int(ecmVar)}.root"
 fB4 = rt.TFile.Open(fnameB4)
 treeB4 = fB4.events
 
-fnameB5 = input_dir + "wzp6_ee_tautau_ecm240.root"
+fnameB5 = input_dir + f"wzp6_ee_tautau_ecm{int(ecmVar)}.root"
 fB5 = rt.TFile.Open(fnameB5)
 treeB5 = fB5.events
 
-fnameB6 = input_dir + "wzp6_ee_nunuH_ecm240.root"
+fnameB6 = input_dir + f"wzp6_ee_nunuH_ecm{int(ecmVar)}.root"
 fB6 = rt.TFile.Open(fnameB6)
 treeB6 = fB6.events
 
@@ -55,17 +58,17 @@ treeB6 = fB6.events
 whhll = [0,0.0069/500000,0.005895/500000,0.004973/500000,0.007531/500000,0.006796/500000,0.002677/500000,0.001536/500000,0.001103/500000,0.0004448/500000,0.0008526/500000,4.716e-05/500000,0.0001749/500000,1.933e-07/500000,1.61e-07/500000,0,0,0,2.88e-05/500000,1.467e-07/500000,0.001014/500000]
 whhllvv = [0,0.001303/500000,0.0009189/500000,0.005148/500000,2.634e-06/500000,1.769e-06/500000,1.615e-07/500000,3.531e-08/500000,2.433e-08/500000,1.218e-10/400002,5.058e-08/500000,2.346e-10/63,6.152e-11/200614,1.754e-11/500000,1.634e-11/500000,0,0,0,3.792e-09/500000,1.674e-11/500000,7.768e-09/400004]
 
-for BP in range(11,21):
+for BP in range(18,19):
     print('BP ',BP)
     if (whhll[BP] == 0):
         print('skip')
     else:
-        fnameS = input_dir + "e240_bp{}_h2h2ll.root".format(BP)
+        fnameS = input_dir + "e365_bp{}_h2h2ll.root".format(BP)
         fS = rt.TFile.Open(fnameS)
         fS.ls()
         treeS = fS.events
         
-        fnameS2 = input_dir + "e240_bp{}_h2h2llvv.root".format(BP)
+        fnameS2 = input_dir + "e365_bp{}_h2h2llvv.root".format(BP)
         fS2 = rt.TFile.Open(fnameS2)
         treeS2 = fS2.events
 

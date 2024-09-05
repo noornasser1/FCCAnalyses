@@ -1,29 +1,51 @@
+ecmVar = 365 # Change as needed.
+
 processList = {
-    'p8_ee_ZZ_ecm240':{},
-    'p8_ee_WW_ecm240':{},
-    'wzp6_ee_eeH_ecm240':{},
-    'wzp6_ee_mumuH_ecm240':{},
-    'wzp6_ee_nunuH_ecm240':{},
-    'wzp6_ee_tautauH_ecm240':{},
-    'wzp6_ee_qqH_ecm240':{},
-    'wzp6_ee_ee_Mee_30_150_ecm240':{},
-    'wzp6_ee_mumu_ecm240':{},
-    'wzp6_ee_tautau_ecm240':{},
-    #'p8_ee_ZH_ecm240_out':{'output':'MySample_p8_ee_ZH_ecm240'} #Run over the full statistics from stage1 input file <inputDir>/p8_ee_ZH_ecm240_out.root. Change the output name to MySample_p8_ee_ZH_ecm240
+    f'p8_ee_ZZ_ecm{int(ecmVar)}':{},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_ZZ_ecm240/chunk<N>.root
+    f'p8_ee_WW_ecm{int(ecmVar)}':{},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_WW_ecm240/chunk<N>.root
+    f'wzp6_ee_eeH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_mumuH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_nunuH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_tautauH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_qqH_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_ee_Mee_30_150_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_mumu_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_tautau_ecm{int(ecmVar)}':{},
+    f'p8_ee_tt_ecm{int(ecmVar)}':{},
+    f'wzp6_ee_qq_ecm{int(ecmVar)}':{},
 }
+
+
+
+#'p8_ee_ZH_ecm240_out':{'output':'MySample_p8_ee_ZH_ecm240'} #Run over the full statistics from stage1 input file <inputDir>/p8_ee_ZH_ecm240_out.root. Change the output name to MySample_p8_ee_ZH_ecm240}
 
 #Mandatory: input directory when not running over centrally produced edm4hep events. 
 #It can still be edm4hep files produced standalone or files from a first analysis step (this is the case in this example it runs over the files produced from analysis.py)
-inputDir  = "/eos/user/a/amagnan/FCC/iDMprod/Analysis/stage1"
+inputDir  = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
 
 #Optional: output directory, default is local dir
-outputDir   = "iDM/stage2/"
+#outputDir   = "iDM/stage2/"
+outputDir = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2NoCut"
 
 #Optional: ncpus, default is 4
 nCPUS       = 4
 
 #Optional running on HTCondor, default is False
 runBatch    = False
+
+#Optional batch queue name when running on HTCondor, default is workday
+batchQueue = "workday"
+
+#Optional computing account when running on HTCondor, default is group_u_FCC.local_gen
+#compGroup = "group_u_FCC.local_gen"
+
+#Optional output directory on eos, if specified files will be copied there once the batch job is done, default is empty
+#outputDirEos = "/eos/user/a/amagnan/FCC/iDMprod/Analysis/Bkg"
+#outputDirEos   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage2"
+
+#Optional type for eos, needed when <outputDirEos> is specified. The default is FCC eos which is eospublic
+eosType = "eosuser"
+
 
 ##USER DEFINED CODE
 #import ROOT

@@ -1,29 +1,60 @@
+'''import numpy as np
+
+#Read the input_arguments.txt file into a NumPy array
+input_file_path = '/eos/user/n/nnasser/FCC/iDMprod/input_arguments_test.txt'
+data = np.loadtxt(input_file_path, delimiter=',')
+
+GeVar = 240 #Change this as needed
+
+processList = {}
+
+for var1, var2 in data:
+    # Generate process name and output for h2h2ll
+    base_filename = f"Delphes_EDM4HEPevents_e{GeVar}_mH{int(var1)}_mA{int(var2)}"
+    process_key_h2h2ll = f"h2h2ll/{base_filename}"
+    process_value_h2h2ll = {'output': f"e{GeVar}_mH{int(var1)}_mA{int(var2)}_h2h2ll"}
+    
+    # Generate process name and output for h2h2llvv
+    #process_key_h2h2llvv = f"h2h2llvv/{base_filename}"
+    #process_value_h2h2llvv = {'output': f"e{VAR3}_mH{int(var1)}_mA{int(var2)}_h2h2llvv"}
+    
+    # Add to the new process list dictionary
+    processList[process_key_h2h2ll] = process_value_h2h2ll
+    #processList[process_key_h2h2llvv] = process_value_h2h2llvv
+
 #Mandatory: List of processes
+
+'''
+
+ecmVar = 365
+
 processList = {
-    #'p8_ee_ZZ_ecm240':{'chunks':20},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_ZZ_ecm240/chunk<N>.root
-    #'p8_ee_WW_ecm240':{'chunks':20},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_WW_ecm240/chunk<N>.root
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp1':{'output':'e240_bp1_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp1':{'output':'e240_bp1_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp2':{'output':'e240_bp2_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp2':{'output':'e240_bp2_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp3':{'output':'e240_bp3_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp3':{'output':'e240_bp3_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp4':{'output':'e240_bp4_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp4':{'output':'e240_bp4_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp5':{'output':'e240_bp5_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp5':{'output':'e240_bp5_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp6':{'output':'e240_bp6_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp6':{'output':'e240_bp6_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp7':{'output':'e240_bp7_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp7':{'output':'e240_bp7_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp8':{'output':'e240_bp8_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp8':{'output':'e240_bp8_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp9':{'output':'e240_bp9_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp9':{'output':'e240_bp9_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp10':{'output':'e240_bp10_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp10':{'output':'e240_bp10_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp11':{'output':'e240_bp11_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp11':{'output':'e240_bp11_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp12':{'output':'e240_bp12_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp12':{'output':'e240_bp12_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp13':{'output':'e240_bp13_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp13':{'output':'e240_bp13_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp14':{'output':'e240_bp14_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp14':{'output':'e240_bp14_h2h2llvv'},
-    ## no phase space at 240 GeV --- 'h2h2ll/Delphes_EDM4HEPevents_e240_bp15':{'output':'e240_bp15_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp15':{'output':'e240_bp15_h2h2llvv'},
-    ## no phase space at 240 GeV --- 'h2h2ll/Delphes_EDM4HEPevents_e240_bp16':{'output':'e240_bp16_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp16':{'output':'e240_bp16_h2h2llvv'},
-    ## no phase space at 240 GeV --- 'h2h2ll/Delphes_EDM4HEPevents_e240_bp17':{'output':'e240_bp17_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp17':{'output':'e240_bp17_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp18':{'output':'e240_bp18_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp18':{'output':'e240_bp18_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp19':{'output':'e240_bp19_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp19':{'output':'e240_bp19_h2h2llvv'},
-    'h2h2ll/Delphes_EDM4HEPevents_e240_bp20':{'output':'e240_bp20_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp20':{'output':'e240_bp20_h2h2llvv'},
-#    'Delphes_EDM4HEPevents_e365_bp1',
-#    'Delphes_EDM4HEPevents_e365_bp1'
+    #'h2h2ll/Delphes_EDM4HEPevents_e240_mH50_mA60':{'output':'e240_mH50_mA60_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_mH50_mA60':{'output':'e240_mH50_mA60_h2h2llvv'},
+    #'h2h2ll/Delphes_EDM4HEPevents_e365_mH50_mA80':{'output':'e365_mH50_mA80_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e365_mH50_mA80':{'output':'e365_mH50_mA80_h2h2llvv'},
+    #f'p8_ee_ZZ_ecm{int(ecmVar)}':{'chunks':20},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_ZZ_ecm240/chunk<N>.root
+    #f'p8_ee_WW_ecm{int(ecmVar)}':{'chunks':20},#Run the full statistics in 10 jobs in output dir <outputDir>/p8_ee_WW_ecm240/chunk<N>.root
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp1':{'output':f'e{int(ecmVar)}_bp1_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp1':{'output':f'e{int(ecmVar)}_bp1_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp2':{'output':f'e{int(ecmVar)}_bp2_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp2':{'output':f'e{int(ecmVar)}_bp2_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp3':{'output':f'e{int(ecmVar)}_bp3_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp3':{'output':f'e{int(ecmVar)}_bp3_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp4':{'output':f'e{int(ecmVar)}_bp4_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp4':{'output':f'e{int(ecmVar)}_bp4_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp5':{'output':f'e{int(ecmVar)}_bp5_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp5':{'output':f'e{int(ecmVar)}_bp5_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp6':{'output':f'e{int(ecmVar)}_bp6_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp6':{'output':f'e{int(ecmVar)}_bp6_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp7':{'output':f'e{int(ecmVar)}_bp7_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp7':{'output':f'e{int(ecmVar)}_bp7_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp8':{'output':f'e{int(ecmVar)}_bp8_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp8':{'output':f'e{int(ecmVar)}_bp8_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp9':{'output':f'e{int(ecmVar)}_bp9_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp9':{'output':f'e{int(ecmVar)}_bp9_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp10':{'output':f'e{int(ecmVar)}_bp10_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp10':{'output':f'e{int(ecmVar)}_bp10_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp11':{'output':f'e{int(ecmVar)}_bp11_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp11':{'output':f'e{int(ecmVar)}_bp11_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp12':{'output':f'e{int(ecmVar)}_bp12_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp12':{'output':f'e{int(ecmVar)}_bp12_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp13':{'output':f'e{int(ecmVar)}_bp13_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp13':{'output':f'e{int(ecmVar)}_bp13_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp14':{'output':f'e{int(ecmVar)}_bp14_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp14':{'output':f'e{int(ecmVar)}_bp14_h2h2llvv'},
+    ## no phase space at 240 GeV ---
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp15':{'output':f'e{int(ecmVar)}_bp15_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp15':{'output':f'e{int(ecmVar)}_bp15_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp16':{'output':f'e{int(ecmVar)}_bp16_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp16':{'output':f'e{int(ecmVar)}_bp16_h2h2llvv'},
+    f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp17':{'output':f'e{int(ecmVar)}_bp17_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp17':{'output':f'e{int(ecmVar)}_bp17_h2h2llvv'},
+    ##
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp18':{'output':f'e{int(ecmVar)}_bp18_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp18':{'output':f'e{int(ecmVar)}_bp18_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp19':{'output':f'e{int(ecmVar)}_bp19_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp19':{'output':f'e{int(ecmVar)}_bp19_h2h2llvv'},
+    #f'h2h2ll/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp20':{'output':f'e{int(ecmVar)}_bp20_h2h2ll'},f'h2h2llvv/Delphes_EDM4HEPevents_e{int(ecmVar)}_bp20':{'output':f'e{int(ecmVar)}_bp20_h2h2llvv'},
 }
 
 #for bp in `seq 1 20`; do echo "'h2h2ll/Delphes_EDM4HEPevents_e240_bp${bp}':{'output':'e240_bp${bp}_h2h2ll'},'h2h2llvv/Delphes_EDM4HEPevents_e240_bp${bp}':{'output':'e240_bp${bp}_h2h2llvv'},"; done
@@ -36,7 +67,8 @@ processList = {
 inputDir    = "/eos/user/a/amagnan/FCC/iDMprod/winter2023/"
 
 #Optional: output directory, default is local dir
-outputDir   = "root://eosuser//eos/user/a/amagnan/FCC/iDMprod/Analysis/stage1"
+outputDir   = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
+#outputDir = "iDM/stage1NoCut"
 
 #Optional: ncpus, default is 4
 nCPUS       = 4
@@ -45,13 +77,14 @@ nCPUS       = 4
 runBatch    = False
 
 #Optional batch queue name when running on HTCondor, default is workday
-batchQueue = "longlunch"
+batchQueue = "workday"
 
 #Optional computing account when running on HTCondor, default is group_u_FCC.local_gen
 compGroup = "group_u_FCC.local_gen"
 
 #Optional output directory on eos, if specified files will be copied there once the batch job is done, default is empty
 #outputDirEos = "/eos/user/a/amagnan/FCC/iDMprod/h2h2ll/Analysis/"
+#outputDirEos = "/eos/user/n/nnasser/FCC/iDMprod/Analysis/stage1NoCut"
 
 #Optional type for eos, needed when <outputDirEos> is specified. The default is FCC eos which is eospublic
 eosType = "eosuser"
